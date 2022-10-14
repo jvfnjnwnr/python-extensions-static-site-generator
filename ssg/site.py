@@ -27,7 +27,7 @@ class Site:
             )
 
     def build(self):
-        load_bundled()
+        extensions.load_bundled()
         self.dest.mkdir(parents=True, exist_ok=True)
         for path in self.source.rglob("*"):
             if path.is_dir():
