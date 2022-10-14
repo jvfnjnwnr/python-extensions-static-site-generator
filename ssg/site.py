@@ -1,6 +1,8 @@
 import sys
 from pathlib import Path
+
 from ssg import extensions, hooks
+
 
 class Site:
     def __init__(self, source, dest, parsers=None):
@@ -35,7 +37,7 @@ class Site:
             if path.is_dir():
                 self.create_dir(path)
             elif path.is_file():
-                self.run_parser(path)\
+                self.run_parser(path)
         hooks.event("stats")
 
     @staticmethod
