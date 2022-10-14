@@ -1,17 +1,22 @@
+mport time
 from ssg import hooks
-import time
-global start_time
+
 start_time = None
-global total_written
 total_written = 0
+
+
 @hooks.register("start_build")
 def start_build():
     global start_time
     start_time = time.time()
+
+
 @hooks.register("written")
 def written():
     global total_written
     total_written = total_written + 1
+
+
 @hooks.register("stats")
 def stats():
     final_time = time.time() - start_time
